@@ -1,0 +1,104 @@
+# JobPilot matching eval: 2 synthetic personas × 15 jobs = 30 labeled pairs.
+# Labels (good / ok / bad) were drafted by Claude and are meant to be reviewed by a human
+# (Pranav). Edit freely; `python -m jobpilot eval` recomputes the metrics.
+personas:
+  - id: fresher_backend_ai
+    profile:
+      full_name: Aarav (synthetic)
+      location_current: Hyderabad
+      is_student: true
+      current_or_last_title: Backend Intern
+      seniority: intern
+      total_experience_years: 0
+      internship_months: 3
+      inferred_target_roles: [Backend Developer, AI Engineer, Full Stack Developer]
+      skills:
+        languages: [Python, JavaScript, SQL]
+        frameworks: [FastAPI, Django, React, REST APIs, Pytest]
+        tools: [Git, Docker, Linux, WhatsApp Business API, n8n]
+        cloud: []
+        databases: [PostgreSQL, Redis, pgvector]
+        ml_ai: [LangChain, RAG, OpenAI API, Chatbots]
+        soft: [Communication]
+      skill_evidence:
+        - {skill: FastAPI, where: "job: Pixel Labs"}
+        - {skill: Python, where: "project: WhatsApp support bot"}
+        - {skill: RAG, where: "project: resume screener"}
+      domains: [AI automation, web development]
+      projects:
+        - {name: WhatsApp Support Bot, summary: Automated retail support, tech: [Python, FastAPI, Redis]}
+        - {name: Resume Screener, summary: RAG ranking of resumes, tech: [LangChain, OpenAI API, pgvector]}
+    prefs:
+      target_roles: [Backend Developer, AI Engineer, Full Stack Developer]
+      job_types: [full_time, internship]
+      work_modes: [remote, hybrid, onsite]
+      locations: [Hyderabad, Bengaluru]
+      willing_to_relocate: false
+      experience_level: intern
+    labels: {j01: good, j02: good, j03: good, j04: bad, j05: bad, j06: bad, j07: bad, j08: bad,
+             j09: ok, j10: good, j11: bad, j12: bad, j13: ok, j14: bad, j15: ok}
+
+  - id: mid_data_analyst
+    profile:
+      full_name: Priya (synthetic)
+      location_current: Bengaluru
+      is_student: false
+      current_or_last_title: Data Analyst
+      seniority: mid
+      total_experience_years: 4.9
+      internship_months: 7
+      inferred_target_roles: [Data Analyst, Business Intelligence Analyst, Analytics Engineer]
+      skills:
+        languages: [SQL, Python]
+        frameworks: [Pandas]
+        tools: [Power BI, Tableau, Excel]
+        cloud: []
+        databases: [Snowflake]
+        ml_ai: [Statistics, Data Analysis]
+        soft: [Communication]
+      skill_evidence:
+        - {skill: Power BI, where: "job: Flipkart"}
+        - {skill: SQL, where: "job: Flipkart"}
+      domains: [e-commerce analytics]
+      projects: []
+    prefs:
+      target_roles: [Data Analyst, Business Intelligence Analyst, Analytics Engineer]
+      job_types: [full_time]
+      work_modes: [remote, hybrid, onsite]
+      locations: [Bengaluru]
+      willing_to_relocate: false
+      experience_level: mid
+    labels: {j01: bad, j02: bad, j03: bad, j04: bad, j05: bad, j06: good, j07: good, j08: ok,
+             j09: bad, j10: bad, j11: bad, j12: good, j13: bad, j14: ok, j15: bad}
+
+jobs:
+  - {id: j01, title: Backend Engineer Intern (Python), company: Acme Labs, location: "Hyderabad, India", remote_type: hybrid, employment_type: internship, days_old: 2,
+     description: "Build REST APIs with FastAPI and PostgreSQL. Write Pytest tests, ship with Docker. Students welcome; Python fundamentals and Git required."}
+  - {id: j02, title: AI Engineer - LLM Applications, company: Nimbus AI, location: "Bengaluru, India", remote_type: onsite, employment_type: full_time, days_old: 3,
+     description: "0-2 years. Build LLM-powered products with Python, LangChain and RAG pipelines over vector databases (pgvector). Prompt engineering and evaluation."}
+  - {id: j03, title: Junior Full Stack Developer, company: Pixel Commerce, location: "Hyderabad, India", remote_type: onsite, employment_type: full_time, days_old: 5,
+     description: "Freshers or up to 1 year. React frontend, Django backend, PostgreSQL. Work with designers on e-commerce features."}
+  - {id: j04, title: Senior Site Reliability Engineer, company: Cloudcore, location: "Bengaluru, India", remote_type: hybrid, employment_type: full_time, days_old: 4,
+     description: "7+ years running production Kubernetes, Terraform, AWS. On-call leadership and incident management."}
+  - {id: j05, title: Business Development Executive, company: SalesPro, location: "Hyderabad, India", remote_type: onsite, employment_type: full_time, days_old: 1,
+     description: "Generate leads, cold calling, meet monthly sales targets. Excellent communication skills."}
+  - {id: j06, title: Data Analyst, company: RetailCo, location: "Bengaluru, India", remote_type: hybrid, employment_type: full_time, days_old: 2,
+     description: "3+ years. SQL, Power BI dashboards, Python and Pandas for analysis. Partner with category managers on pricing insights."}
+  - {id: j07, title: Senior Data Analyst - Product, company: FinServe, location: "Bengaluru, India", remote_type: hybrid, employment_type: full_time, days_old: 6,
+     description: "4-6 years. SQL, Tableau, experimentation and A/B testing, statistics. Own product metrics end to end."}
+  - {id: j08, title: Data Engineer, company: Streamly, location: "Bengaluru, India", remote_type: onsite, employment_type: full_time, days_old: 8,
+     description: "2-4 years building pipelines with PySpark, Airflow and SQL on Snowflake. Data modelling."}
+  - {id: j09, title: Machine Learning Intern, company: VisionWorks, location: "Hyderabad, India", remote_type: onsite, employment_type: internship, days_old: 3,
+     description: "Train computer vision models with Python and PyTorch. Data labelling and experiment tracking."}
+  - {id: j10, title: Python Developer (Automation), company: AutoFlow, location: "Remote - India", remote_type: remote, employment_type: full_time, days_old: 1,
+     description: "0-2 years. Build automation and chatbots with Python, REST APIs, n8n and the WhatsApp Business API for SMB clients."}
+  - {id: j11, title: Mechanical Design Engineer, company: Precision Parts, location: "Pune, India", remote_type: onsite, employment_type: full_time, days_old: 2,
+     description: "SolidWorks, AutoCAD, GD&T. Design fixtures for CNC machining."}
+  - {id: j12, title: Business Intelligence Analyst, company: Logix, location: "Bengaluru, India", remote_type: hybrid, employment_type: full_time, days_old: 4,
+     description: "3+ years. Power BI, DAX, SQL and Excel. Build executive dashboards and data models."}
+  - {id: j13, title: Software Development Engineer I, company: ShopKart, location: "Bengaluru, India", remote_type: onsite, employment_type: full_time, days_old: 7,
+     description: "0-2 years. Java or Python, data structures and algorithms, REST services, SQL."}
+  - {id: j14, title: Analytics Engineer, company: DataNest, location: "Remote - India", remote_type: remote, employment_type: full_time, days_old: 5,
+     description: "2-5 years. dbt, SQL, Snowflake, data modelling and documentation for analytics teams."}
+  - {id: j15, title: Frontend Developer Intern (React), company: WebNest, location: "Hyderabad, India", remote_type: hybrid, employment_type: internship, days_old: 2,
+     description: "React and TypeScript UI work, CSS, Git. Students welcome."}

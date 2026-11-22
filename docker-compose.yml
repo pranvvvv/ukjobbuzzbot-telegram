@@ -1,0 +1,11 @@
+services:
+  jobpilot:
+    build: .
+    env_file: .env
+    environment:
+      DATA_DIR: /data
+    volumes:
+      - jobpilot-data:/data
+    restart: unless-stopped
+volumes:
+  jobpilot-data:
